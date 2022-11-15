@@ -24,9 +24,8 @@ class priorityQueue{NodoPQ<T>*cab = new NodoPQ<T>;
 			bool isEmptyPriorityQueue();
 			int sizePriorityQueue();
 			void insertOnPriorityQueue(T dato); 
-			bool deleteFromPriorityQueue(int pos);
+			T attendPriorityQueue();
 			T printPriorityQueue(int);
-			void sortPriorityQueue();
 			NodoPQ<T> *searchPosition(int);
 			
 //			~priorityQueue();
@@ -129,7 +128,54 @@ void priorityQueue<T>::insertOnPriorityQueue(T dato){
 }
  
 
+template <class T>
+T priorityQueue<T>::attendPriorityQueue(int pos){
+	NodoPQ<T> *na = new NodoPQ<T>;
+	NodoPQ<T> *ncambio = new NodoPQ<T>;	
+	NodoPQ<T> *ncambio2 = new NodoPQ<T>;
+	NodoPQ<T> *nhermano = new NodoPQ<T>;	
+	NodoPQ<T> *nhermano2 = new NodoPQ<T>;
+	ncambio2 = cab;
+	while(ncambio2->sig != NULL){
+		ncambio2 = ncambio2->sig;
+	}
+	ncambio->info = ncambio2->info;
+	ncambio2 = NULL;
+	//Delete ncambio2
+	int i = pos;
+	if(i == 1){
+		na=cab;
+		na->info = NULL;
+		nhermano = na->sig;
+		nhermano2 = nhermano->sig;
+	}else{
+		while(na->info != NULL){
+			na = na->sig;
+		}
+		int p = 2*i;
+		while(nhermano->pos != p){
+			
+		}
+		int p1 =(2*i)+1
+	}
+		
+			if(nhermano->info > nhermano2->info){
+				
+			}else{
+				
+			}
+			
+		
+	}
+
+
+
+
 	
+	
+	
+	
+}
 	
 	
 #endif
