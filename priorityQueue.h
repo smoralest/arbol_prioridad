@@ -14,39 +14,41 @@ template <class T>
 class priorityQueue{
 			int tam;
 			int pos2;
-			T arreglo [];
+			int espacio;
 			int pos;
 			T nc;
-			int espacio; 
+			T arreglo[];
+			 //
 	public: priorityQueue(int a){
-			T Arreglo[a];
-			T *Arr = &Arreglo[0];
-			cout<<"Arreglo de tamaño "<<a<<" ha sido creado";
-			cout<<" en el espacio de memoria: "<<Arr<<endl;
+			T Arreglo[a]; //
+			T *Arr = &Arreglo[0]; //
+			espacio = a; //*//
+			cout<<"Arreglo de tamaño "<<espacio<<" ha sido creado"; //
+			cout<<" en el espacio de memoria: "<<Arr<<endl; //
 			tam=0;
 			pos2= 0;
 			pos= 1;
 			nc=0;
-			espacio = a; 
+			
 //						cout<<"ndsdsrregloxxx:	"<<nc<<endl;
 			}
 
-			bool isEmptyPriorityQueue();
-			int sizePriorityQueue();
+//			bool isEmptyPriorityQueue();
+//			int sizePriorityQueue();
 			void insertOnPriorityQueue(T dato); 
 		//	void attendPriorityQueue();
-			T printPriorityQueue();
+//			T printPriorityQueue();
 		//	NodoPQ<T> *searchPosition(int);
-			void guardarArreglo ();
-			void organizarArreglo();
+//			void guardarArreglo ();
+//			void organizarArreglo();
 //			~priorityQueue();
 
 };
 	
-template <class T>
-int priorityQueue<T>::sizePriorityQueue(){
-	return tam;
-}	
+//template <class T>
+//int priorityQueue<T>::sizePriorityQueue(){
+//	return tam;
+//}	
 
 //template <class T>
 //void  priorityQueue<T>:: guardarArreglo(){
@@ -111,7 +113,7 @@ void priorityQueue<T>::insertOnPriorityQueue(T dato){
 		tam++; 
 		cout<<"entro"<<endl;
 	}
-	if (tam >0 && tam < espacio){
+	if (tam > 0 && tam <= espacio){
 		// si se puede ingresar al arreglo 
 		  cout<<"espacio: "<<espacio<<"------";
 		  arreglo[tam]=dato;
