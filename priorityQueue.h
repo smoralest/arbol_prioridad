@@ -1,36 +1,43 @@
 #include <iostream>
-#ifndef COLASDEPRIORIDAD
-#define COLASDEPRIORIDAD
+#ifndef PRIORITYQUEUE_H
+#define PRIORITYQUEUE_H
 
+/**
+ * \mainpage priorityQueue
+ * \author Jhonatan Moreno - Santiago Avila
+ * \date Noviembre - 2022
+ */
 
 using namespace std; 
 
 
 template <class T> 
-class colaPrio {
+class priorityQueue{
 	T *Arr;
   int tam, PosAct;
 
 public:
-  colaPrio(int tam2) {
+  priorityQueue(int tam2) {
     Arr= new T[tam2 ]; // +1 ? 
     PosAct = 1;
     for (int i = 0; i < tam2; i++)
       Arr[i] = 0;
     tam = tam2;
   };
-  ~colaPrio() { delete Arr; }
-  bool insertar(int);
-  int atender();
-  void imprimirArreglo();
-  bool colaPrio_lleno();
+  ~priorityQueue() { delete Arr; }
+  bool insertOnPriorityQueue(T);
+  T attendPriorityQueue();
+  void printPriorityQueue();
+  bool isPriorityQueueFull();
 };
 
 template <class T> 
-bool  colaPrio <T>::insertar(int dato) {
+bool  priorityQueue <T>::insertOnPriorityQueue(T dato) {
   int auxPos = PosAct;
-  if(colaPrio_lleno())
-    return false;
+  if(isPriorityQueueFull()){
+  	cout<<"\nNo es posible agregar el elemento -> "<<dato<<endl;
+	return false;  	
+  }
   else if (auxPos == 1) {
     Arr[PosAct] = dato;
     PosAct++;
@@ -46,14 +53,14 @@ bool  colaPrio <T>::insertar(int dato) {
 }
 
 template <class T> 
-int colaPrio <T>::atender() {
-  int vatender; 
+T priorityQueue <T>::attendPriorityQueue() {
+  int vattendPriorityQueue; 
   int ultimov; 
   int auxPos = 1;
   if (Arr[1] == 0)
     return 0;
   else {
-    vatender = Arr[1]; 
+    vattendPriorityQueue = Arr[1]; 
     Arr[1] = 0; 
     if (PosAct == 0) PosAct = tam;
     else PosAct--;
@@ -71,19 +78,29 @@ int colaPrio <T>::atender() {
       Arr[auxPos] = 0;
     }
     Arr[auxPos] = ultimov;
-    return vatender;
+    return vattendPriorityQueue;
   }
 }
 
 template <class T> 
-void colaPrio <T>::imprimirArreglo() {
-  cout << endl;
-  for (int i = 1; i <= tam; i++)
-    cout << "Posicion " << i << ":  \t" << Arr[i] << endl;
+void priorityQueue <T>::printPriorityQueue() {
+  cout <<"Impresión: "<< endl;
+  cout<<" [ ";
+  for (int i = 1; i <= tam; i++){
+  	cout <<  Arr[i];
+  	if(i<=tam-1)
+  		cout<<" , ";
+  	else if(!i<=tam)
+  		cout<<" ]";
+  }
+//    cout << "(" << i <<":"<<  Arr[i] <<") - ";
+	cout<<endl<<endl;
+   
 }
 
 template <class T> 
-bool colaPrio <T>::colaPrio_lleno() {
+bool priorityQueue <T>::isPriorityQueueFull() {
  return PosAct == 0;
   }
+  
 #endif 

@@ -1,2 +1,8 @@
 # arbol_prioridad
-## Puto_el_que_lo_lea
+Se maneja un arbol en forma de arreglo
+
+/**
+ * \mainpage priorityQueue
+ * \author Jhonatan Moreno - Santiago Avila
+ * \date Noviembre - 2022
+ */
