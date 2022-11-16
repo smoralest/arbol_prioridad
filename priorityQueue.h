@@ -21,13 +21,17 @@ class priorityQueue{NodoPQ<T>*cab = new NodoPQ<T>;
 			T arreglo [];
 			int pos;
 			T nc;
-	public: priorityQueue(){
+	public: priorityQueue(int a){
+			T Arreglo[a];
+			T *Arr = &Arreglo[0];
+			cout<<"Arreglo de tamaño "<<a<<" ha sido creado";
+			cout<<" en el espacio de memoria: "<<Arr<<endl;
 			cab=NULL;
 			tam=0;
 			pos2= 0;
 			pos= 1;
 			nc=0;
-						cout<<"ndsdsrregloxxx:	"<<nc<<endl;
+//						cout<<"ndsdsrregloxxx:	"<<nc<<endl;
 			}
 
 			bool isEmptyPriorityQueue();
@@ -101,10 +105,11 @@ NodoPQ<T> *priorityQueue<T>::searchPosition(int posicion){
 	
 template <class T>
 void priorityQueue<T>::insertOnPriorityQueue(T dato){
-	NodoPQ<T> *nn = new NodoPQ<T>;
-	NodoPQ<T> *ncambio = new NodoPQ<T>;	
-	NodoPQ<T> *ncambio2 = new NodoPQ<T>;
-	nn->info=dato;
+//	NodoPQ<T> *nn = new NodoPQ<T>;
+//	NodoPQ<T> *ncambio = new NodoPQ<T>;	
+//	NodoPQ<T> *ncambio2 = new NodoPQ<T>;
+//	nn->info=dato;
+
 	if(tam==0){
 		nn->sig = NULL;
 		cab = nn;
